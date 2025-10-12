@@ -7,6 +7,7 @@ public class EnemyApproaches : MonoBehaviour
     public float layerInterval = 3f; // seconds between moves
     public float scaleIncrease = 0.2f;
 
+    private GameTimer gameTimer;
     private float timer;
     private SpriteRenderer spriteRenderer;
     private Camera mainCamera;
@@ -16,7 +17,11 @@ public class EnemyApproaches : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
         UpdateVisualLayer();
+
+        // Find the GameTimer object in the scene
+        gameTimer = FindFirstObjectByType<GameTimer>();
     }
+
 
     void Update()
     {
@@ -63,7 +68,14 @@ public class EnemyApproaches : MonoBehaviour
 
     void OnReachPlayer()
     {
+        // Deduct 1 second from the timer
+        if (gameTimer != null)
+        {
+            gameTimer.Timer -= 1f;
+            gameTimer.Timer = Mathf.Max(gameTimer.Timer, 0f);
+        }
+
         Destroy(gameObject);
-  
     }
+
 }

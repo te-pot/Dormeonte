@@ -199,5 +199,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyApproaches
   currentLayer: 1
   maxLayer: 5
-  layerInterval: 10
+  layerInterval: 5
   scaleIncrease: 1
