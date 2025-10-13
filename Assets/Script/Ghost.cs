@@ -42,7 +42,7 @@ public class Ghost : MonoBehaviour
         }
     }
 
-    public void Die()
+    void Die()
     {
         // Add score and show in console
         if (scoreManager != null)
