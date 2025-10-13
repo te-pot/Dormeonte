@@ -3,46 +3,65 @@ using UnityEngine;
 public class ArrowShooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public GameObject cat;
     public float shootForce = 10f;
-    public float reloadTime = 2f; // seconds between shots
 
     private GameObject currentProjectile;
-    private bool isReloading = false;
+    private bool reloading;
 
+
+    private void Start()
+    {
+        reloading = false;
+        cat.SetActive(true);
+    }
     void Update()
     {
-        // Try to shoot when spacebar (or mouse) pressed
-        if (Input.GetKeyDown(KeyCode.Space) && !isReloading && currentProjectile == null)
+        // Only allow shooting when there's no active projectile
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && currentProjectile == null)
         {
             Shoot();
         }
+
+        if (currentProjectile != null)
+        {
+            reloading = true;
+        }
+        else
+        {
+            reloading = false;
+        }
+
+            CatRespawn();
     }
 
     void Shoot()
     {
         // Create projectile and store reference
         currentProjectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+
         Rigidbody2D rb = currentProjectile.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * shootForce, ForceMode2D.Impulse);
-
-        // Start reloading coroutine
-        StartCoroutine(Reload());
+        if (rb != null)
+        {
+            rb.AddForce(transform.up * shootForce, ForceMode2D.Impulse);
+        }
     }
 
-    System.Collections.IEnumerator Reload()
-    {
-        isReloading = true;
-
-        yield return new WaitForSeconds(reloadTime);
-
-        // Allow shooting again only if projectile has been destroyed
-        isReloading = false;
-    }
-
-    // Optional: if the projectile destroys itself after hitting something
-    // it can call this method on the shooter to reset the reference
+    // Called from projectile when it is destroyed
     public void ClearProjectile()
     {
         currentProjectile = null;
+    }
+
+    public void CatRespawn()
+    {
+        if (reloading == true)
+        {
+            cat.SetActive(false);
+        }
+        else
+        {
+            cat.SetActive(true);
+        }
     }
 }

@@ -12,10 +12,6 @@ public class Projectile : MonoBehaviour
         {
             respawnBorder = borderObj.GetComponent<Collider2D>();
         }
-        else
-        {
-            Debug.LogWarning("No GameObject with tag 'Boarder' found in the scene!");
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -24,16 +20,6 @@ public class Projectile : MonoBehaviour
         if (other == respawnBorder)
         {
             Destroy(gameObject);
-        }
-    }
-
-    void OnDestroy()
-    {
-        // Notify shooter if still exists
-        ArrowShooter shooter = FindFirstObjectByType<ArrowShooter>();
-        if (shooter != null)
-        {
-            shooter.ClearProjectile();
         }
     }
 }

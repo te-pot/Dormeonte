@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     public Text StartTimerText;
     public GameObject ArrowPivot;
     public GameObject Spawners;
+    public GameObject UIPanel;
 
     public float Timer = 60f;
     public Text TimerText;
@@ -28,7 +29,7 @@ public class GameTimer : MonoBehaviour
 
         shooterScript.enabled = false;
         swingScript.enabled = false;
-        TimerText.gameObject.SetActive(false);
+        UIPanel.gameObject.SetActive(false);
         Spawners.SetActive(true);
     }
 
@@ -49,7 +50,7 @@ public class GameTimer : MonoBehaviour
 
                 shooterScript.enabled = true;
                 swingScript.enabled = true;
-                TimerText.gameObject.SetActive(true);
+                UIPanel.gameObject.SetActive(true);
             }
         }
         else
@@ -77,9 +78,10 @@ public class GameTimer : MonoBehaviour
     private System.Collections.IEnumerator HandleEndTransition()
     {
         isTransitioning = true;
-        Debug.Log("Timer reached zero — starting fade out");
+        UIPanel.SetActive(false);
+        Time.timeScale = 0f;
         FadeAnimator.SetTrigger("FadeOutTrigger");
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(3f);
         SceneManager.LoadScene(NextSceneName);
     }
 }

@@ -1,51 +1,55 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    [Header("Colliders")]
-    public Collider2D NormalDamage;
-    public Collider2D CriticalDamage;
-
     [Header("Health Settings")]
-    public float maxHealth;
+    public float maxHealth = 1f;
     private float currentHealth;
-    public float NDamage;
-    public float CDamage;
+
+    private ScoreManager scoreManager;
 
     void Start()
     {
         currentHealth = maxHealth;
 
-        // Ensure colliders are triggers
-        NormalDamage.isTrigger = true;
-        CriticalDamage.isTrigger = true;
+        // Find the ScoreManager object (must have tag "ScoreManager")
+        GameObject scoreObj = GameObject.FindWithTag("ScoreManager");
+        if (scoreObj != null)
+        {
+            scoreManager = scoreObj.GetComponent<ScoreManager>();
+        }
+        else
+        {
+            Debug.LogError("⚠️ ScoreManager not found! Make sure it has the correct tag.");
+        }
     }
 
-    public void TakeDamage(float NDamage)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        currentHealth -= NDamage;
-        Debug.Log($"{gameObject.name} took {NDamage} damage! Health left: {currentHealth}");
+        Projectile projectile = collision.collider.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            TakeDamage(1);
+        }
+    }
 
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    public void TakeCriticalDamage(float CDamage)
+    public void Die()
     {
-        currentHealth -= CDamage;
-        Debug.Log($"{gameObject.name} took CRITICAL {CDamage} damage! Health left: {currentHealth}");
-
-        if (currentHealth <= 0)
+        // Add score and show in console
+        if (scoreManager != null)
         {
-            Die();
+            scoreManager.AddScore();
         }
-    }
 
-    void Die()
-    {
-        Debug.Log($"{gameObject.name} has been defeated!");
         Destroy(gameObject);
     }
 }

@@ -5,10 +5,10 @@ public class GhostSpawnScript : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
     public GameObject ghost1;
-    public GameObject ghost2;
-    public GameObject ghost3;
-    public GameObject ghost4;
-    public GameObject ghost5;
+    //public GameObject ghost2;
+    //public GameObject ghost3;
+    //public GameObject ghost4;
+    //public GameObject ghost5;
 
     [Header("Spawn Settings")]
     public float spawnInterval = 3f;  // seconds between spawns
@@ -19,15 +19,10 @@ public class GhostSpawnScript : MonoBehaviour
 
     void Start()
     {
-        ghostPrefabs = new[] { ghost1, ghost2, ghost3, ghost4, ghost5 };
-
-        // Grab the collider attached to the spawner
         spawnAreaCollider = GetComponent<Collider2D>();
-
-        // Ensure the collider is a trigger so ghosts don't collide with it
-        if (!spawnAreaCollider.isTrigger)
-            spawnAreaCollider.isTrigger = true;
+        ghostPrefabs = new[] { ghost1 /*, ghost2, ghost3, etc. */ };
     }
+
 
     void Update()
     {
