@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.72955966, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -103,7 +103,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 093f2100f2b86e742a5ef82354393c0b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -127,8 +127,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0055264235, y: -0.01286342}
-  m_Size: {x: 0.8121116, y: 1.8327737}
+  m_Offset: {x: -0.0055264235, y: -0.027501173}
+  m_Size: {x: 0.8121116, y: 1.803482}
   m_Direction: 0
 --- !u!114 &2089158029024949520
 MonoBehaviour:
@@ -155,6 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd8c43974dcecf47888186933533770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyApproaches
-  currentLayer: 0
+  currentLayer: 1
   maxLayer: 3
   layerInterval: 3
