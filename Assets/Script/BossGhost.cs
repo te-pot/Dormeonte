@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class BossGhost : MonoBehaviour
 {
     [Header("Health Settings")]
     public float maxHealth = 1f;
@@ -32,6 +32,7 @@ public class Ghost : MonoBehaviour
         if (projectile != null)
         {
             TakeDamage(1);
+            scoreManager.AddScore();
         }
     }
 
@@ -49,7 +50,6 @@ public class Ghost : MonoBehaviour
         // Add score and show in console
         if (scoreManager != null)
         {
-            scoreManager.AddScore();
         }
 
         Destroy(gameObject);

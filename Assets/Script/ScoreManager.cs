@@ -1,8 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int score = 0;
+    public static ScoreManager Instance;
+
+    private  int score = 0;
+    public Text ScoreText;
+
+    void Start()
+    {
+    }
+    
+    void Update()
+    {
+        ScoreText.text = score.ToString();
+    }
 
     public void AddScore()
     {
@@ -14,4 +27,5 @@ public class ScoreManager : MonoBehaviour
     {
         return score;
     }
+
 }

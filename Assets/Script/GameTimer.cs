@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class GameTimer : MonoBehaviour
     public GameObject ArrowPivot;
     public GameObject Spawners;
     public GameObject UIPanel;
+    public GameObject Boss;
 
     public float Timer = 60f;
-    public Text TimerText;
+    public TextMeshProUGUI TimerText;
 
     [Header("Fade Settings")]
     public Animator FadeAnimator;
@@ -20,12 +22,12 @@ public class GameTimer : MonoBehaviour
     private bool gameStarted = false;
     private bool isTransitioning = false;
     private ArrowShooter shooterScript;
-    private ArrowSwing swingScript;
+    private ArrowAim swingScript;
 
     private void Start()
     {
         shooterScript = ArrowPivot.GetComponent<ArrowShooter>();
-        swingScript = ArrowPivot.GetComponent<ArrowSwing>();
+        swingScript = ArrowPivot.GetComponent<ArrowAim>();
 
         shooterScript.enabled = false;
         swingScript.enabled = false;
@@ -53,6 +55,7 @@ public class GameTimer : MonoBehaviour
                 UIPanel.gameObject.SetActive(true);
             }
         }
+
         else
         {
             if (Timer > 0)
@@ -67,6 +70,28 @@ public class GameTimer : MonoBehaviour
             {
                 StartCoroutine(HandleEndTransition());
             }
+
+            // 🔹 Spawn boss when timer hits 30 seconds
+            if (Timer <= 30f && Boss != null && !Boss.activeSelf)
+            {
+                Boss.SetActive(true);
+                Spawners.SetActive(false);
+            }
+
+            // 🔹 Reactivate spawners once the boss is dead
+            if (Boss == null)
+            {
+                Spawners.SetActive(true);
+            }
+            else
+            {
+                Ghost bossScript = Boss.GetComponent<Ghost>();
+                if (bossScript != null && bossScript.isDead)
+                {
+                    Spawners.SetActive(true);
+                }
+            }
+
         }
     }
 
