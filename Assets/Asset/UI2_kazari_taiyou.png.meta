@@ -1,0 +1,283 @@
+fileFormatVersion: 2
+guid: 7a6d693d13de8194ba99ea300d4098fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6194648209161293074
+    second: UI2_kazari_taiyou_0
+  - first:
+      213: 5874523828687813411
+    second: UI2_kazari_taiyou_1
+  - first:
+      213: -3946867610456215280
+    second: UI2_kazari_taiyou_2
+  - first:
+      213: 7484733432232717156
+    second: UI2_kazari_taiyou_3
+  - first:
+      213: 3130103607467097092
+    second: UI2_kazari_taiyou_4
+  - first:
+      213: 3565007559944691811
+    second: UI2_kazari_taiyou_5
+  - first:
+      213: 7881571933749648952
+    second: UI2_kazari_taiyou_6
+  - first:
+      213: 4918821900142633133
+    second: UI2_kazari_taiyou_7
+  - first:
+      213: 5002968368251679332
+    second: UI2_kazari_taiyou_8
+  - first:
+      213: 2681392863151471391
+    second: UI2_kazari_taiyou_9
+  - first:
+      213: 6926572266155026904
+    second: UI2_kazari_taiyou_10
+  - first:
+      213: -5850539896426134006
+    second: UI2_kazari_taiyou_11
+  - first:
+      213: -5991887839283243946
+    second: UI2_kazari_taiyou_12
+  - first:
+      213: 5577161757610282368
+    second: UI2_kazari_taiyou_13
+  - first:
+      213: 1265562766512570186
+    second: UI2_kazari_taiyou_14
+  - first:
+      213: -1596132405588363383
+    second: UI2_kazari_taiyou_15
+  - first:
+      213: 7084396360591029122
+    second: UI2_kazari_taiyou_16
+  - first:
+      213: -9180859879212711541
+    second: UI2_kazari_taiyou_17
+  - first:
+      213: 4930461895233145675
+    second: UI2_kazari_taiyou_18
+  - first:
+      213: -2489598975364437239
+    second: UI2_kazari_taiyou_19
+  - first:
+      213: 4954968129533356428
+    second: UI2_kazari_taiyou_20
+  - first:
+      213: -5898873410200895044
+    second: UI2_kazari_taiyou_21
+  - first:
+      213: 7939228799894066242
+    second: UI2_kazari_taiyou_22
+  - first:
+      213: 3381384418551025588
+    second: UI2_kazari_taiyou_23
+  - first:
+      213: 9150587215565869000
+    second: UI2_kazari_taiyou_24
+  - first:
+      213: -181236701393695294
+    second: UI2_kazari_taiyou_25
+  - first:
+      213: 3327529513830037549
+    second: UI2_kazari_taiyou_26
+  - first:
+      213: -295008244136745663
+    second: UI2_kazari_taiyou_27
+  - first:
+      213: -2688023382545333055
+    second: UI2_kazari_taiyou_28
+  - first:
+      213: 1732974496540029762
+    second: UI2_kazari_taiyou_29
+  - first:
+      213: 4923356903484969472
+    second: UI2_kazari_taiyou_30
+  - first:
+      213: -2045965263454801958
+    second: UI2_kazari_taiyou_31
+  - first:
+      213: 3525872145610934981
+    second: UI2_kazari_taiyou_32
+  - first:
+      213: 2886987128029255176
+    second: UI2_kazari_taiyou_33
+  - first:
+      213: -9044505123717282070
+    second: UI2_kazari_taiyou_34
+  - first:
+      213: -5178558293900306911
+    second: UI2_kazari_taiyou_35
+  - first:
+      213: 8792976141240515337
+    second: UI2_kazari_taiyou_36
+  - first:
+      213: 8673831836060028391
+    second: UI2_kazari_taiyou_37
+  - first:
+      213: -3482765492707396815
+    second: UI2_kazari_taiyou_38
+  - first:
+      213: 6571975192810187300
+    second: UI2_kazari_taiyou_39
+  - first:
+      213: 2386333482144267321
+    second: UI2_kazari_taiyou_40
+  - first:
+      213: 4469428440017016866
+    second: UI2_kazari_taiyou_41
+  - first:
+      213: -9058651504276197686
+    second: UI2_kazari_taiyou_42
+  - first:
+      213: 2735236342683956880
+    second: UI2_kazari_taiyou_43
+  - first:
+      213: -683161077469822052
+    second: UI2_kazari_taiyou_44
+  - first:
+      213: -8922362885430260411
+    second: UI2_kazari_taiyou_45
+  - first:
+      213: 3715298452419828197
+    second: UI2_kazari_taiyou_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI2_kazari_taiyou_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 572
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee27e604640380aa0800000000000000
+      internalID: -6194648209161293074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5a7976a6c28fa2544a3b3cc56ac5972a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":572.0,"y":289.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      UI2_kazari_taiyou_0: -6194648209161293074
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

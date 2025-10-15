@@ -4,6 +4,7 @@ public class ArrowShooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public GameObject cat;
+    public GameObject tail;
     public float shootForce = 10f;
 
     private GameObject currentProjectile;
@@ -14,6 +15,7 @@ public class ArrowShooter : MonoBehaviour
     {
         reloading = false;
         cat.SetActive(true);
+        tail.transform.localScale = new Vector3 (1, 1, 1);
     }
     void Update()
     {
@@ -58,10 +60,12 @@ public class ArrowShooter : MonoBehaviour
         if (reloading == true)
         {
             cat.SetActive(false);
+            tail.transform.localScale = new Vector3(0, 0, 0);
         }
         else
         {
             cat.SetActive(true);
+            tail.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }

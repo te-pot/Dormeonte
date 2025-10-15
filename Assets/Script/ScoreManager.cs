@@ -1,20 +1,31 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    private  int score = 0;
+    private int score = 0;
     public Text ScoreText;
 
-    void Start()
+    void Awake()
     {
+        // ✅ Ensure a single persistent instance
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // <-- this keeps it alive across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Prevent duplicates
+        }
     }
-    
+
     void Update()
     {
-        ScoreText.text = score.ToString();
+        if (ScoreText != null)
+            ScoreText.text = score.ToString();
     }
 
     public void AddScore()
@@ -28,4 +39,8 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
 }

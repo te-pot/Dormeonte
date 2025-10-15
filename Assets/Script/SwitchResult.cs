@@ -9,7 +9,7 @@ public class SwitchResult : MonoBehaviour
     public GameObject BadEnd;
     public TextMeshProUGUI finalPoint;
 
-    private int score;
+    private int score = 0;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class SwitchResult : MonoBehaviour
         BadEnd.gameObject.SetActive(false);
 
         // Show correct ending
-        if (score >= 30)
+        if (score >= 20)
             GoodEnd.gameObject.SetActive(true);
         else if (score >= 15)
             NormalEnd.gameObject.SetActive(true);

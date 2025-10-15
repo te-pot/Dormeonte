@@ -31,6 +31,7 @@ public class GameTimer : MonoBehaviour
 
         shooterScript.enabled = false;
         swingScript.enabled = false;
+        Boss.SetActive(false);
         UIPanel.gameObject.SetActive(false);
         Spawners.SetActive(true);
     }
@@ -75,11 +76,11 @@ public class GameTimer : MonoBehaviour
             if (Timer <= 30f && Boss != null && !Boss.activeSelf)
             {
                 Boss.SetActive(true);
-                Spawners.SetActive(false);
+                //Spawners.SetActive(false);
             }
 
             // 🔹 Reactivate spawners once the boss is dead
-            if (Boss == null)
+            /*if (Boss == null)
             {
                 Spawners.SetActive(true);
             }
@@ -91,6 +92,7 @@ public class GameTimer : MonoBehaviour
                     Spawners.SetActive(true);
                 }
             }
+            */
 
         }
     }

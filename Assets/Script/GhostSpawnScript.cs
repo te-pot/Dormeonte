@@ -5,8 +5,8 @@ public class GhostSpawnScript : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
     public GameObject ghost1;
-    //public GameObject ghost2;
-    //public GameObject ghost3;
+    public GameObject ghost2;
+    public GameObject ghost3;
     //public GameObject ghost4;
     //public GameObject ghost5;
 
@@ -20,7 +20,7 @@ public class GhostSpawnScript : MonoBehaviour
     void Start()
     {
         spawnAreaCollider = GetComponent<Collider2D>();
-        ghostPrefabs = new[] { ghost1 /*, ghost2, ghost3, etc. */ };
+        ghostPrefabs = new[] { ghost1, ghost2, ghost3 };
     }
 
 

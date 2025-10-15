@@ -16,10 +16,27 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the projectile hit the border
+
+
         if (other == respawnBorder)
         {
             Destroy(gameObject);
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 🎯 Only play bounce sound if the hit object has the right tag
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Interior"))
+        {
+            // Play the bounce sound from AudioManager
+            AudioManager.Instance?.PlayBounce();
+
+            // Optional: vary bounce volume by impact strength
+            // float impactForce = collision.relativeVelocity.magnitude;
+            // float volume = Mathf.Clamp01(impactForce / 10f);
+            // AudioManager.Instance?.PlaySFX(AudioManager.Instance.bounce, volume);
         }
     }
 }
