@@ -1,12 +1,15 @@
 using UnityEngine;
-public class ShowRandom : MonoBehaviour
+public class ShowRandom2 : MonoBehaviour
 {
     [Header("Random Choice")]
     public GameObject random1;
     public GameObject random2;
     public GameObject random3;
-   
-  
+    public GameObject random4;
+    public GameObject random5;
+    public GameObject random6;
+
+
 
     private GameObject[] random;
 
@@ -30,6 +33,6 @@ public class ShowRandom : MonoBehaviour
 
         randomShow.SetActive(true);
 
- 
+
     }
 }

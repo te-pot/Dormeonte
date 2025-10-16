@@ -110,5 +110,6 @@ public class GameTimer : MonoBehaviour
         FadeAnimator.SetTrigger("FadeOutTrigger");
         yield return new WaitForSecondsRealtime(3f);
         SceneManager.LoadScene(NextSceneName);
+        Time.timeScale = 1f;
     }
 }

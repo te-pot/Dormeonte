@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 526f97d76549056489e8f3d65d233cf6
+guid: 6cd8612fe3184df478c13ac80d79fc10
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8352994642578007603
-    second: 02_1tana_0
+      213: 4098717727224792798
+    second: title01_red02_0
+  - first:
+      213: -1072575222539465599
+    second: title01_red02_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02_1tana_0
+      name: title01_red02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 369
-        height: 1001
-      alignment: 9
-      pivot: {x: 0.5557026, y: 0.092364356}
+        width: 314
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3366a911f5ccbe370800000000000000
-      internalID: 8352994642578007603
+      spriteID: ed684d59e0291e830800000000000000
+      internalID: 4098717727224792798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title01_red02_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 289
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c46a194827d11f0800000000000000
+      internalID: -1072575222539465599
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 04c0a5180cbcc504a8a58211956a1ad6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      02_1tana_0: 8352994642578007603
+      title01_red02_0: 4098717727224792798
+      title01_red02_1: -1072575222539465599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

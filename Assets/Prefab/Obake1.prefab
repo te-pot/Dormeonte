@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6710335264732123200}
   - component: {fileID: -6511708364866851393}
   m_Layer: 0
-  m_Name: obake1
+  m_Name: Obake1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,6 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostBehavior
   fadeDuration: 1
-  moveRadius: 3
+  moveRadius: 2
   moveSpeed: 1
   idleTime: 1

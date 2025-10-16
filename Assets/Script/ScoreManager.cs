@@ -34,6 +34,12 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"Current Score: {score}");
     }
 
+    public void AddMultipleScore(int amount)
+    {
+        score += amount;
+        Debug.Log($"Current Score: {score}"); 
+    }
+
     public int GetScore()
     {
         return score;

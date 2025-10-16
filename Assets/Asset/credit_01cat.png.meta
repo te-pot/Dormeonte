@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 526f97d76549056489e8f3d65d233cf6
+guid: 0b66995123c6e7f47a3f174255abea3a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8352994642578007603
-    second: 02_1tana_0
+      213: 3512679400476220752
+    second: credit_01cat_0
+  - first:
+      213: 3241814193060952096
+    second: credit_01cat_1
+  - first:
+      213: 2537055735252105191
+    second: credit_01cat_2
+  - first:
+      213: 7456037824599599984
+    second: credit_01cat_3
+  - first:
+      213: 993922216029410555
+    second: credit_01cat_4
+  - first:
+      213: 6206522465153741439
+    second: credit_01cat_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +115,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02_1tana_0
+      name: credit_01cat_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 369
-        height: 1001
-      alignment: 9
-      pivot: {x: 0.5557026, y: 0.092364356}
+        width: 828
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3366a911f5ccbe370800000000000000
-      internalID: 8352994642578007603
+      spriteID: 05d9733cd4b8fb030800000000000000
+      internalID: 3512679400476220752
       vertices: []
       indices: 
       edges: []
@@ -125,7 +140,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 04c0a5180cbcc504a8a58211956a1ad6
+    spriteID: e889e59c7102ab24eb87b98a1ab414f8
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +148,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":828.0,"y":397.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      02_1tana_0: 8352994642578007603
+      credit_01cat_0: 3512679400476220752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

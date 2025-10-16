@@ -6,53 +6,62 @@ public class BossGhost : MonoBehaviour
     public float maxHealth = 1f;
     private float currentHealth;
 
-    private ScoreManager scoreManager;
-    public bool isDead = false;
+    [Header("References")]
+    public GameObject ghostObject;  // Assign the boss prefab itself in Inspector
+
+    [Header("Score Settings")]
+    public int scorePerHit = 1;       // Points per projectile hit
+    public int scoreOnDeath = 100;    // Points when boss dies
+
+    private bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
         isDead = false;
-
-        // Find the ScoreManager object (must have tag "ScoreManager")
-        GameObject scoreObj = GameObject.FindWithTag("ScoreManager");
-        if (scoreObj != null)
-        {
-            scoreManager = scoreObj.GetComponent<ScoreManager>();
-        }
-        else
-        {
-            Debug.LogError("⚠️ ScoreManager not found! Make sure it has the correct tag.");
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Projectile projectile = collision.collider.GetComponent<Projectile>();
-        if (projectile != null)
+        // Only react to projectile hits
+        if (collision.collider.GetComponent<Projectile>() != null && !isDead)
         {
-            TakeDamage(1);
-            scoreManager.AddScore();
+            TakeDamage(1f);
+
+            // Add score for hitting the boss
+            ScoreManager.Instance?.AddScore(); // Adds scorePerHit points per hit
+            Debug.Log($"Projectile hit! Added {scorePerHit} points.");
         }
     }
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return; // Prevent multiple death triggers
+
         currentHealth -= amount;
-        if (currentHealth <= 0)
+
+        if (currentHealth <= 0f)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        // Add score and show in console
-        if (scoreManager != null)
-        {
-        }
-
-        Destroy(gameObject);
         isDead = true;
+
+        // Add score for defeating the boss
+        ScoreManager.Instance?.AddMultipleScore(scoreOnDeath);
+        Debug.Log($"Boss defeated! Added {scoreOnDeath} points.");
+
+        // Destroy the boss object
+        if (ghostObject != null)
+        {
+            Destroy(ghostObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,10 +1,76 @@
 fileFormatVersion: 2
-guid: 526f97d76549056489e8f3d65d233cf6
+guid: d2f6335bd102c0b4daa88e48ba5ddcda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8352994642578007603
-    second: 02_1tana_0
+      213: 5831300556454062111
+    second: credit_02txt_0
+  - first:
+      213: 8130516652771548406
+    second: credit_02txt_1
+  - first:
+      213: 9216672170322574606
+    second: credit_02txt_2
+  - first:
+      213: -3105211764077391898
+    second: credit_02txt_3
+  - first:
+      213: -2289842345569256226
+    second: credit_02txt_4
+  - first:
+      213: -5558535084710604518
+    second: credit_02txt_5
+  - first:
+      213: -6879548753262373426
+    second: credit_02txt_6
+  - first:
+      213: 2217815255335419245
+    second: credit_02txt_7
+  - first:
+      213: -5090026467381176170
+    second: credit_02txt_8
+  - first:
+      213: -7437389127576031103
+    second: credit_02txt_9
+  - first:
+      213: -5826972461109327376
+    second: credit_02txt_10
+  - first:
+      213: -1321607607189577443
+    second: credit_02txt_11
+  - first:
+      213: -8427408064270118373
+    second: credit_02txt_12
+  - first:
+      213: -8250421570398005228
+    second: credit_02txt_13
+  - first:
+      213: 2743000893644972465
+    second: credit_02txt_14
+  - first:
+      213: -2360785297379177265
+    second: credit_02txt_15
+  - first:
+      213: 8785180619083891055
+    second: credit_02txt_16
+  - first:
+      213: -305667097738630938
+    second: credit_02txt_17
+  - first:
+      213: -114351670256293394
+    second: credit_02txt_18
+  - first:
+      213: -2735466655141725750
+    second: credit_02txt_19
+  - first:
+      213: 2409654755898341769
+    second: credit_02txt_20
+  - first:
+      213: -998934464228412689
+    second: credit_02txt_21
+  - first:
+      213: -7116335942059646634
+    second: credit_02txt_22
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +166,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02_1tana_0
+      name: credit_02txt_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 369
-        height: 1001
-      alignment: 9
-      pivot: {x: 0.5557026, y: 0.092364356}
+        width: 658
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3366a911f5ccbe370800000000000000
-      internalID: 8352994642578007603
+      spriteID: f186bf5e5f0fce050800000000000000
+      internalID: 5831300556454062111
       vertices: []
       indices: 
       edges: []
@@ -125,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 04c0a5180cbcc504a8a58211956a1ad6
+    spriteID: 149bbba54bd81c54fa69a7c0fbd82e19
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +199,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":658.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      02_1tana_0: 8352994642578007603
+      credit_02txt_0: 5831300556454062111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

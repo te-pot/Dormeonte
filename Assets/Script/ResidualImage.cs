@@ -52,7 +52,12 @@ public class ResidualImage : MonoBehaviour
 
         // Copy properties from the projectile
         sr.sprite = mainRenderer.sprite;
-        sr.color = mainRenderer.color;
+
+        // Darken color (multiply RGB by 0.5 to make it darker)
+        Color darker = mainRenderer.color * 0.5f;
+        darker.a = mainRenderer.color.a;
+        sr.color = darker;
+
         sr.sortingLayerID = mainRenderer.sortingLayerID;
         sr.sortingOrder = mainRenderer.sortingOrder - 1;
 
@@ -67,6 +72,7 @@ public class ResidualImage : MonoBehaviour
         // Fade & destroy
         StartCoroutine(FadeAndDestroy(sr, lifetime));
     }
+
 
     IEnumerator FadeAndDestroy(SpriteRenderer sr, float life)
     {

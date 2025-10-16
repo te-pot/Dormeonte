@@ -5,6 +5,7 @@ public class MainManuController : MonoBehaviour
 {
     public void StartGame()
     {
+        Time.timeScale = 1; // Reset time scale
         SceneManager.LoadScene("GamePlay");
 
     }

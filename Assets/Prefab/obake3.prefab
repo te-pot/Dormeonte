@@ -173,6 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostBehavior
   fadeDuration: 1
-  moveRadius: 3
+  moveRadius: 2
   moveSpeed: 1
   idleTime: 1
