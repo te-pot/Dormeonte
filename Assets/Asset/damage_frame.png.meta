@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 526f97d76549056489e8f3d65d233cf6
+guid: 425a52e560a8b64438845ebbff38b712
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8352994642578007603
-    second: 02_1tana_0
+      213: 7003661380721092280
+    second: damage_frame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02_1tana_0
+      name: damage_frame_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 369
-        height: 1001
-      alignment: 9
-      pivot: {x: 0.9332455, y: 0.121263936}
+        width: 522
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3366a911f5ccbe370800000000000000
-      internalID: 8352994642578007603
+      spriteID: 8b6a0053be0023160800000000000000
+      internalID: 7003661380721092280
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 04c0a5180cbcc504a8a58211956a1ad6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      02_1tana_0: 8352994642578007603
+      damage_frame_0: 7003661380721092280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

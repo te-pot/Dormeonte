@@ -1,42 +1,60 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    private Collider2D respawnBorder;  // Store the collider reference
+    private Collider2D projectileCollider;
+    private Collider2D borderCollider;
 
     void Start()
     {
-        // Find the border GameObject by tag and get its Collider2D
+        projectileCollider = GetComponent<Collider2D>();
+
+        // Find the border object (must be tagged "Border")
         GameObject borderObj = GameObject.FindWithTag("Boarder");
         if (borderObj != null)
         {
-            respawnBorder = borderObj.GetComponent<Collider2D>();
+            borderCollider = borderObj.GetComponent<Collider2D>();
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-
-
-        if (other == respawnBorder)
+        else
         {
-            Destroy(gameObject);
+            Debug.LogWarning("⚠️ No object with tag 'Border' found in scene!");
         }
 
+        // Ignore all colliders tagged as "Floor"
+        Collider2D[] allColliders = FindObjectsByType<Collider2D>(FindObjectsSortMode.None); foreach (Collider2D col in allColliders)
+        {
+            if (col != projectileCollider && col.CompareTag("Floor"))
+            {
+                Physics2D.IgnoreCollision(projectileCollider, col, true);
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 🎯 Only play bounce sound if the hit object has the right tag
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Interior"))
-        {
-            // Play the bounce sound from AudioManager
-            AudioManager.Instance?.PlayBounce();
+        string tag = collision.collider.tag;
 
-            // Optional: vary bounce volume by impact strength
-            // float impactForce = collision.relativeVelocity.magnitude;
-            // float volume = Mathf.Clamp01(impactForce / 10f);
-            // AudioManager.Instance?.PlaySFX(AudioManager.Instance.bounce, volume);
+        // Play bounce sound only for specific tags
+        if (tag == "Enemy" || tag == "Interior")
+        {
+            if (AudioManager.Instance != null && AudioManager.Instance.sfxSource != null)
+            {
+                // Stop the previous sound (if still playing) and restart
+                AudioManager.Instance.sfxSource.Stop();
+                AudioManager.Instance.sfxSource.clip = AudioManager.Instance.bounce;
+                AudioManager.Instance.sfxSource.Play();
+            }
+        }
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Destroy projectile if it hits the border
+        if (borderCollider != null && other == borderCollider)
+        {
+            Destroy(gameObject);
         }
     }
 }

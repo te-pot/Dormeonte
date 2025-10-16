@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7509220675952838577}
   - component: {fileID: 5629296115366428694}
   - component: {fileID: 282189959131367430}
+  - component: {fileID: 4454575304916106109}
   m_Layer: 0
   m_Name: obake3
   m_TagString: Enemy
@@ -157,5 +158,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyApproaches
   currentLayer: 3
-  maxLayer: 8
+  maxLayer: 6
   layerInterval: 3
+--- !u!114 &4454575304916106109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414325413146745207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bef00ba5f43db458acfa2ea61b3a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostBehavior
+  fadeDuration: 1
+  moveRadius: 3
+  moveSpeed: 1
+  idleTime: 1

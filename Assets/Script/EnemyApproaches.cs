@@ -4,12 +4,12 @@ public class EnemyApproaches : MonoBehaviour
 {
     public int currentLayer = 1;
     public int maxLayer = 5;
-    public float layerInterval = 3f; // seconds between moves
+    public float layerInterval = 3f;
 
-    private GameTimer gameTimer;
     private float timer;
     private SpriteRenderer spriteRenderer;
     private Camera mainCamera;
+    private DamageFlash damageFlash; // Reference to the flash script
 
     void Start()
     {
@@ -17,10 +17,13 @@ public class EnemyApproaches : MonoBehaviour
         mainCamera = Camera.main;
         UpdateVisualLayer();
 
-        // Find the GameTimer object in the scene
-        gameTimer = FindFirstObjectByType<GameTimer>();
+        // Find the VFX parent with CanvasGroup
+        GameObject vfxObj = GameObject.FindWithTag("VFX");
+        if (vfxObj != null)
+            damageFlash = vfxObj.GetComponent<DamageFlash>();
+        else
+            Debug.LogWarning("VFX object not found or inactive in hierarchy!");
     }
-
 
     void Update()
     {
@@ -35,15 +38,6 @@ public class EnemyApproaches : MonoBehaviour
     void MoveCloser()
     {
         currentLayer++;
-
-
-        // 🔹 Randomize horizontal position within camera view
-        /*ector3 newPos = transform.position;
-        float halfWidth = mainCamera.orthographicSize * mainCamera.aspect;
-        newPos.x = Random.Range(-halfWidth + 0.5f, halfWidth - 0.5f); // 0.5f buffer so it doesn’t go off-screen
-        transform.position = newPos;*/
-
-        // Update visual depth
         UpdateVisualLayer();
 
         if (currentLayer >= maxLayer)
@@ -54,13 +48,25 @@ public class EnemyApproaches : MonoBehaviour
 
     void UpdateVisualLayer()
     {
-        // Higher sortingOrder = drawn on top
         spriteRenderer.sortingOrder = currentLayer;
     }
 
     void OnReachPlayer()
     {
-        // Deduct 1 second from the timer
+        // Trigger the flash
+        if (damageFlash != null)
+            damageFlash.Flash();
+
+        if (AudioManager.Instance != null && AudioManager.Instance.sfxSource != null)
+        {
+            // Stop the previous sound (if still playing) and restart
+            AudioManager.Instance.sfxSource.Stop();
+            AudioManager.Instance.sfxSource.clip = AudioManager.Instance.track3;
+            AudioManager.Instance.sfxSource.Play();
+        }
+
+        // Deduct 1 second from game timer (example)
+        GameTimer gameTimer = FindFirstObjectByType<GameTimer>();
         if (gameTimer != null)
         {
             gameTimer.Timer -= 1f;
@@ -69,5 +75,4 @@ public class EnemyApproaches : MonoBehaviour
 
         Destroy(gameObject);
     }
-
 }

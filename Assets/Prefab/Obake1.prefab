@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2327413973056311266}
   - component: {fileID: 4634697603207099945}
   - component: {fileID: 6710335264732123200}
+  - component: {fileID: -6511708364866851393}
   m_Layer: 0
   m_Name: obake1
   m_TagString: Enemy
@@ -159,3 +160,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.064813435, y: 0.3060636}
   m_Size: {x: 0.76432836, y: 1.2190293}
   m_Direction: 0
+--- !u!114 &-6511708364866851393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054541420916166540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bef00ba5f43db458acfa2ea61b3a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostBehavior
+  fadeDuration: 1
+  moveRadius: 3
+  moveSpeed: 1
+  idleTime: 1

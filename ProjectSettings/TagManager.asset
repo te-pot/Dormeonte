@@ -8,6 +8,9 @@ TagManager:
   - Interior
   - Boarder
   - ScoreManager
+  - Floor
+  - Projectile
+  - VFX
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Projectile
+  - Furniture
   - 
   - 
   - 

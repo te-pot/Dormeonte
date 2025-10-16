@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ResidualImage : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class ResidualImage : MonoBehaviour
 
     private SpriteRenderer mainRenderer;
     private bool isDestroyed = false;
+
+    // Track all spawned trail parts
+    private List<GameObject> trailParts = new List<GameObject>();
 
     void Start()
     {
@@ -26,9 +30,17 @@ public class ResidualImage : MonoBehaviour
 
     void OnDestroy()
     {
-        // Stop spawning trails when projectile is destroyed
+        // Stop spawning trails
         isDestroyed = true;
         CancelInvoke(nameof(SpawnTrail));
+
+        // Destroy all existing trail parts immediately
+        foreach (GameObject part in trailParts)
+        {
+            if (part != null)
+                Destroy(part);
+        }
+        trailParts.Clear();
     }
 
     void SpawnTrail()
@@ -49,6 +61,9 @@ public class ResidualImage : MonoBehaviour
         trailPart.transform.rotation = transform.rotation;
         trailPart.transform.localScale = transform.localScale;
 
+        // Keep track of it
+        trailParts.Add(trailPart);
+
         // Fade & destroy
         StartCoroutine(FadeAndDestroy(sr, lifetime));
     }
@@ -66,6 +81,7 @@ public class ResidualImage : MonoBehaviour
             yield return null;
         }
 
+        trailParts.Remove(sr.gameObject); // Remove from list
         Destroy(sr.gameObject);
     }
 }
