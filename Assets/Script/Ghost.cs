@@ -40,7 +40,7 @@ public class Ghost : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            AudioManager.Instance?.PlayGhostDie();
+            AudioManager.Instance?.PlaySFX2();
             Die();
         }
     }

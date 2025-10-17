@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -6,8 +7,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource musicSource;
-    public AudioSource sfxSource;      // Default SFX source
-    public AudioSource sfxSource2;     // Optional SFX source for projectiles, etc.
+    public AudioSource sfxSource;
+    public AudioSource sfxSource2;
 
     [Header("Music Tracks")]
     public AudioClip track1;
@@ -22,18 +23,17 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton setup
         if (Instance == null)
         {
             Instance = this;
-            // Optional: remove DontDestroyOnLoad if you want scene-specific AudioManagers
+            // Optional: keep across scenes
             // DontDestroyOnLoad(gameObject);
 
-            // Start music immediately
             if (musicSource != null && track1 != null)
             {
                 musicSource.loop = true;
-                musicSource.PlayOneShot(track1);
+                musicSource.clip = track1;
+                musicSource.Play();
             }
         }
         else
@@ -41,7 +41,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
     // ---------------- MUSIC ----------------
     public void PlayMusic(AudioClip clip, bool loop = true)
@@ -59,6 +58,24 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = null;
     }
 
+    public IEnumerator FadeOutMusic(float duration = 1f)
+    {
+        if (musicSource == null || !musicSource.isPlaying) yield break;
+
+        float startVolume = musicSource.volume;
+        float time = 0;
+
+        while (time < duration)
+        {
+            time += Time.unscaledDeltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, time / duration);
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = startVolume; // reset for future use
+    }
+
     // ---------------- SFX ----------------
     public void PlaySFX(AudioClip clip, bool useSecondarySource = false)
     {
@@ -72,12 +89,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFXImmediate(AudioClip clip)
     {
         if (sfxSource == null || clip == null) return;
-        sfxSource.Stop();         // Stop any clip currently playing
-        sfxSource.clip = clip;    // Assign the new clip
-        sfxSource.pitch = 1f;     // or add slight variation if you want
-        sfxSource.Play();         // Play from the start
+        sfxSource.Stop();
+        sfxSource.clip = clip;
+        sfxSource.pitch = 1f;
+        sfxSource.Play();
     }
-
 
     // Convenience wrappers
     public void PlayTrack1() => PlayMusic(track1);
@@ -88,6 +104,5 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX4() => PlaySFX(sfx4);
     public void PlaySFX5() => PlaySFX(sfx5);
 
-    // Special SFX using secondary source
     public void PlaySFX2a() => PlaySFX(sfx2a, true);
 }

@@ -388,8 +388,8 @@ MonoBehaviour:
   musicSource: {fileID: 80963321}
   sfxSource: {fileID: 960879934}
   sfxSource2: {fileID: 0}
-  track1: {fileID: 0}
-  sfx1: {fileID: 0}
+  track1: {fileID: 8300000, guid: dffe597039a8acc4aab38dea8f813914, type: 3}
+  sfx1: {fileID: 8300000, guid: fbca88bd9e2c81d4a9e0de56159ca7f2, type: 3}
   sfx2: {fileID: 0}
   sfx3: {fileID: 0}
   sfx4: {fileID: 0}
@@ -711,7 +711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -578, y: 362}
+  m_AnchoredPosition: {x: -578, y: 398.43}
   m_SizeDelta: {x: 534.28174, y: 556.3992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160527981
@@ -1097,7 +1097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 382, y: 103}
+  m_AnchoredPosition: {x: 382, y: 256}
   m_SizeDelta: {x: 637.9167, y: 98.2739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397028689
@@ -1176,7 +1176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 352, y: 232}
+  m_AnchoredPosition: {x: 357, y: 361}
   m_SizeDelta: {x: 736.0365, y: 280.739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425428512
@@ -1295,7 +1295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 267.14087, y: -148}
+  m_AnchoredPosition: {x: 267.14087, y: -84}
   m_SizeDelta: {x: 1359.1, y: 564.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625277102
@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Direction / Art / UI
+  m_Text: 'Direction / Art & Animation / UI
 
     3Mint Mori
 
@@ -1339,6 +1339,14 @@ MonoBehaviour:
     Programming / Support
 
     Tep
+
+
+    SPECIAL
+    THANKS
+
+    Opening Movie Music
+
+    GumdropMeadowz
 
 '
 --- !u!222 &1625277103
@@ -1598,7 +1606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 267.14087, y: -381}
+  m_AnchoredPosition: {x: 267.14087, y: -388}
   m_SizeDelta: {x: 1359.1, y: 564.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807918351

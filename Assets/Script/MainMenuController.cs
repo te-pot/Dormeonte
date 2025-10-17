@@ -19,6 +19,11 @@ public class MainMenuController : MonoBehaviour
         StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx1, "StartMenu"));
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     private IEnumerator PlaySFXAndLoadScene(AudioClip clip, string sceneName)
     {
         if (clip != null && AudioManager.Instance != null)

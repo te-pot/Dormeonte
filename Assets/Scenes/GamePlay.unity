@@ -4130,12 +4130,12 @@ MonoBehaviour:
   sfxSource: {fileID: 959331058}
   sfxSource2: {fileID: 1909592398}
   track1: {fileID: 8300000, guid: 25cd3a1270735f442923a076aded038d, type: 3}
-  sfx1: {fileID: 0}
+  sfx1: {fileID: 8300000, guid: 71273e57e08fcf84680d1eba212e3f09, type: 3}
   sfx2: {fileID: 8300000, guid: 81ceaf5b0be8ff841b0385cdcbc7a9b9, type: 3}
   sfx3: {fileID: 8300000, guid: badb710cc5a0ecf4e8a1119c8cbcaa74, type: 3}
   sfx4: {fileID: 8300000, guid: 4595bfaa064334641a3d609f8dedc678, type: 3}
   sfx5: {fileID: 8300000, guid: 934dc770877db2b44b2855c0f7c5fe11, type: 3}
-  sfx2a: {fileID: 8300000, guid: f642d5ecfe0d7ef4ea1edf9384ff82be, type: 3}
+  sfx2a: {fileID: 8300000, guid: 71273e57e08fcf84680d1eba212e3f09, type: 3}
 --- !u!4 &1003689726
 Transform:
   m_ObjectHideFlags: 0
