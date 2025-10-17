@@ -57,15 +57,10 @@ public class EnemyApproaches : MonoBehaviour
         if (damageFlash != null)
             damageFlash.Flash();
 
-        if (AudioManager.Instance != null && AudioManager.Instance.sfxSource != null)
-        {
-            // Stop the previous sound (if still playing) and restart
-            AudioManager.Instance.sfxSource.Stop();
-            AudioManager.Instance.sfxSource.clip = AudioManager.Instance.track3;
-            AudioManager.Instance.sfxSource.Play();
-        }
+        // Play SFX3 immediately
+        AudioManager.Instance?.PlaySFX3();
 
-        // Deduct 1 second from game timer (example)
+        // Deduct 1 second from game timer
         GameTimer gameTimer = FindFirstObjectByType<GameTimer>();
         if (gameTimer != null)
         {
@@ -75,4 +70,5 @@ public class EnemyApproaches : MonoBehaviour
 
         Destroy(gameObject);
     }
+
 }

@@ -1,29 +1,36 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for SceneManager
+using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class MainManuController : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        Time.timeScale = 1; // Reset time scale
-        SceneManager.LoadScene("GamePlay");
-
-    }
-
-    public void OpenSettings()
-    {
-        SceneManager.LoadScene("Settings");
-
+        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx1, "GamePlay"));
     }
 
     public void OpenCredits()
     {
-        SceneManager.LoadScene("Credits");
-
+        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx2, "Credits"));
     }
 
-    public void ReturnToTitle()
+    public void ReturntoHome()
     {
-        SceneManager.LoadScene("StartMenu");
+        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx1, "StartMenu"));
+    }
+
+    private IEnumerator PlaySFXAndLoadScene(AudioClip clip, string sceneName)
+    {
+        if (clip != null && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.sfxSource.clip = clip;
+            AudioManager.Instance.sfxSource.Play();
+
+            // Wait for the sound to finish
+            yield return new WaitForSeconds(clip.length);
+        }
+
+        Time.timeScale = 1; // Just in case it was paused
+        SceneManager.LoadScene(sceneName);
     }
 }

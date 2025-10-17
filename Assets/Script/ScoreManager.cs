@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,19 +11,48 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        // ✅ Ensure a single persistent instance
+        // Ensure only one persistent instance
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // <-- this keeps it alive across scenes
+            DontDestroyOnLoad(gameObject);
+
+            // Listen for scene reloads so we can reassign UI text automatically
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject);
+            return;
         }
     }
 
-    void Update()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Try to find the ScoreText again in the new scene
+        if (ScoreText == null)
+        {
+            Text[] texts = FindObjectsByType<Text>(FindObjectsSortMode.None);
+            foreach (Text t in texts)
+            {
+                if (t.name == "ScoreText") // 👈 name of your UI Text object
+                {
+                    ScoreText = t;
+                    break;
+                }
+            }
+        }
+
+        // Update the display right after loading
+        UpdateScoreText();
+    }
+
+    private void Update()
+    {
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
     {
         if (ScoreText != null)
             ScoreText.text = score.ToString();
@@ -31,13 +61,13 @@ public class ScoreManager : MonoBehaviour
     public void AddScore()
     {
         score++;
-        Debug.Log($"Current Score: {score}");
+        UpdateScoreText();
     }
 
     public void AddMultipleScore(int amount)
     {
         score += amount;
-        Debug.Log($"Current Score: {score}"); 
+        UpdateScoreText();
     }
 
     public int GetScore()
@@ -48,5 +78,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
+        UpdateScoreText();
     }
 }

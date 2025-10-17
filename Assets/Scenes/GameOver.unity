@@ -621,13 +621,14 @@ GameObject:
   - component: {fileID: 310547819}
   - component: {fileID: 310547821}
   - component: {fileID: 310547820}
+  - component: {fileID: 310547822}
   m_Layer: 5
   m_Name: nya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &310547819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -644,7 +645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 475.8, y: -181.29205}
+  m_AnchoredPosition: {x: 247.4, y: -196.9}
   m_SizeDelta: {x: 280.9026, y: 199.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310547820
@@ -685,6 +686,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310547818}
   m_CullTransparentMesh: 1
+--- !u!95 &310547822
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310547818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &316980554
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 347547072}
+  - component: {fileID: 347547073}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -802,6 +826,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.8491}
   m_SizeDelta: {x: 1059.1, y: 1098.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &347547073
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347547071}
+  m_Enabled: 1
+  m_Alpha: 0.98
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &357357376
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,8 +996,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552124476}
-  - component: {fileID: 552124475}
-  - component: {fileID: 552124474}
+  - component: {fileID: 552124478}
+  - component: {fileID: 552124481}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -969,36 +1005,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &552124474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552124473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702047645c5fe2d499154f477facdf5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayEndingSFX
---- !u!114 &552124475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552124473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe380f59818f82d43a145a2d1781e755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  musicSource: {fileID: 2091670941}
-  sfxSource: {fileID: 1226802314}
-  background: {fileID: 0}
-  bounce: {fileID: 8300000, guid: 845a931a4f9e74f47bfd13ffec23844c, type: 3}
-  ghostDie: {fileID: 8300000, guid: e4f21b3ac48a7784a8dce64a522dd836, type: 3}
-  track3: {fileID: 8300000, guid: 4337beaf508a05041998560d38b68b1d, type: 3}
 --- !u!4 &552124476
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,6 +1022,41 @@ Transform:
   - {fileID: 1226802315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &552124478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552124473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe380f59818f82d43a145a2d1781e755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 2091670941}
+  sfxSource: {fileID: 1226802314}
+  sfxSource2: {fileID: 0}
+  track1: {fileID: 0}
+  sfx1: {fileID: 8300000, guid: 845a931a4f9e74f47bfd13ffec23844c, type: 3}
+  sfx2: {fileID: 8300000, guid: e4f21b3ac48a7784a8dce64a522dd836, type: 3}
+  sfx3: {fileID: 8300000, guid: 4337beaf508a05041998560d38b68b1d, type: 3}
+  sfx4: {fileID: 0}
+  sfx5: {fileID: 0}
+  sfx2a: {fileID: 0}
+--- !u!114 &552124481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552124473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702047645c5fe2d499154f477facdf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayEndingSFX
+  audioManager: {fileID: 552124478}
 --- !u!1 &577310487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1116,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESULT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
+  m_sharedMaterial: {fileID: 8657789326478192916, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1287,14 +1328,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 9999
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 82f0f49cee58e584aac7fea98bf62748, type: 2}
+  m_sharedMaterial: {fileID: -1964753991091612918, guid: 82f0f49cee58e584aac7fea98bf62748, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 11779007
+    rgba: 4289969087
   m_fontColor: {r: 0.7490196, g: 0.73333335, b: 0.7019608, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1322,7 +1363,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 6.9
+  m_characterSpacing: 4.79
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1520,8 +1561,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Try Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
+  m_sharedMaterial: {fileID: 8657789326478192916, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1859,7 +1900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -2048,7 +2089,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828401549}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2118,7 +2159,7 @@ MonoBehaviour:
   GoodEnd: {fileID: 18908466}
   NormalEnd: {fileID: 2110870338}
   BadEnd: {fileID: 246249631}
-  finalPoint: {fileID: 0}
+  finalPoint: {fileID: 670065869}
 --- !u!114 &830904425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,7 +2210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &891892879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2910,8 +2951,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
+  m_sharedMaterial: {fileID: 8657789326478192916, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3131,7 +3172,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3290,8 +3331,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
+  m_sharedMaterial: {fileID: 8657789326478192916, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3932,8 +3973,8 @@ RectTransform:
   m_Children:
   - {fileID: 1940863625}
   - {fileID: 347547072}
-  - {fileID: 1763757934}
   - {fileID: 771159562}
+  - {fileID: 1763757934}
   m_Father: {fileID: 1538141218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4188,8 +4229,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: POINT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
+  m_sharedMaterial: {fileID: 8657789326478192916, guid: 9ebce8eb93f72a64b9205a49305c5957, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4670,7 +4711,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

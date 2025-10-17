@@ -24,8 +24,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        Time.timeScale = 1; // Reset time scale
+        Time.timeScale = 1;
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.ResetScore();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 
 }

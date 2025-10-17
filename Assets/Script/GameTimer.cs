@@ -76,8 +76,9 @@ public class GameTimer : MonoBehaviour
             if (Timer <= 30f && Boss != null && !Boss.activeSelf)
             {
                 Boss.SetActive(true);
-                //Spawners.SetActive(false);
+                AudioManager.Instance?.PlaySFXImmediate(AudioManager.Instance.sfx4);
             }
+
 
             // 🔹 Reactivate spawners once the boss is dead
             /*if (Boss == null)

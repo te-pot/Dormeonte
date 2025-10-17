@@ -1,37 +1,20 @@
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayEndingSFX : MonoBehaviour
 {
+    public AudioManager audioManager;
 
-    private int score;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-
     {
+        int score = ScoreManager.Instance.GetScore();
 
-        score = ScoreManager.Instance.GetScore();
+        AudioManager.Instance.StopMusic();
 
-        if (score >= 20)
-        {
-            AudioManager.Instance?.PlayBounce();
-        }
-        else if (score >= 15)
-        {
-            AudioManager.Instance?.PlayGhostDie();
-        }
-        else
-        {
-            AudioManager.Instance?.PlayTrack3();
-        }
+        if (score >= 120)
+            AudioManager.Instance.PlaySFX1();
+        else if (score >= 100)
+            AudioManager.Instance.PlaySFX2();
+        else if (score >= 0)
+            AudioManager.Instance.PlaySFX3();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    
 }

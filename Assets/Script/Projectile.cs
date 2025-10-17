@@ -22,7 +22,8 @@ public class Projectile : MonoBehaviour
         }
 
         // Ignore all colliders tagged as "Floor"
-        Collider2D[] allColliders = FindObjectsByType<Collider2D>(FindObjectsSortMode.None); foreach (Collider2D col in allColliders)
+        Collider2D[] allColliders = FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
+        foreach (Collider2D col in allColliders)
         {
             if (col != projectileCollider && col.CompareTag("Floor"))
             {
@@ -35,15 +36,16 @@ public class Projectile : MonoBehaviour
     {
         string tag = collision.collider.tag;
 
-        // Play bounce sound only for specific tags
         if (tag == "Enemy" || tag == "Interior")
         {
-            if (AudioManager.Instance != null && AudioManager.Instance.sfxSource != null)
+            if (AudioManager.Instance != null && AudioManager.Instance.sfxSource2 != null)
             {
-                // Stop the previous sound (if still playing) and restart
-                AudioManager.Instance.sfxSource.Stop();
-                AudioManager.Instance.sfxSource.clip = AudioManager.Instance.bounce;
-                AudioManager.Instance.sfxSource.Play();
+                // Stop the current sound if it's playing
+                AudioManager.Instance.sfxSource2.Stop();
+
+                // Assign the clip and play from start
+                AudioManager.Instance.sfxSource2.clip = AudioManager.Instance.sfx2a;
+                AudioManager.Instance.sfxSource2.Play();
             }
         }
     }
