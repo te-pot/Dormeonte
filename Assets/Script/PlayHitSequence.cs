@@ -19,6 +19,8 @@ public class EnemyHitReaction : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             PlayHitAnimation();
+            ScoreManager.Instance?.AddMultipleScore(1);
+
         }
     }
 

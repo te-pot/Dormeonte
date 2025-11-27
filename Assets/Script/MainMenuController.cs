@@ -6,36 +6,43 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx1, "GamePlay"));
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.ResetScore();
+
+        StartCoroutine(PlaySFXAndLoadScene("meow1", "GamePlay"));
     }
 
     public void OpenCredits()
     {
-        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx2, "Credits"));
+        StartCoroutine(PlaySFXAndLoadScene("meow2", "Credits"));
     }
 
     public void ReturntoHome()
     {
-        StartCoroutine(PlaySFXAndLoadScene(AudioManager.Instance.sfx1, "StartMenu"));
+        StartCoroutine(PlaySFXAndLoadScene("meow1", "StartMenu"));
     }
+
 
     public void ExitGame()
     {
         Application.Quit();
     }
 
-    private IEnumerator PlaySFXAndLoadScene(AudioClip clip, string sceneName)
+    private IEnumerator PlaySFXAndLoadScene(string sfxName, string sceneName)
     {
-        if (clip != null && AudioManager.Instance != null)
+        if (AudioManager.Instance != null && AudioManager.Instance.sfxSource != null)
         {
-            AudioManager.Instance.sfxSource.clip = clip;
-            AudioManager.Instance.sfxSource.Play();
-
-            // Wait for the sound to finish
-            yield return new WaitForSeconds(clip.length);
+            // Find the sound clip manually
+            Sound s = System.Array.Find(AudioManager.Instance.sfxSounds, x => x.name == sfxName);
+            if (s != null)
+            {
+                AudioManager.Instance.sfxSource.PlayOneShot(s.clip);
+                yield return new WaitForSeconds(s.clip.length);
+            }
         }
 
-        Time.timeScale = 1; // Just in case it was paused
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
+
 }

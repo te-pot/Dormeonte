@@ -5,15 +5,15 @@ public class CombinedHitandFall : MonoBehaviour
 {
     [Header("Animation Settings")]
     public Animator animator;
-    public string gotHitTrigger = "GotHit";   // trigger name in Animator
-    public string hasFallenTrigger = "HasFallen"; // trigger name in Animator
+    public string gotHitTrigger = "GotHit";   
+    public string hasFallenTrigger = "HasFallen";
 
     [Header("Hit Settings")]
-    public int hitsToFall = 5;         // how many hits before falling
-    public float hitCooldown = 0.3f;   // prevent multiple hits too fast
+    public int hitsToFall = 5;         
+    public float hitCooldown = 0.3f;  
 
     [Header("References")]
-    public Collider2D targetCollider;  // assign the collider to disable when dead
+    public Collider2D targetCollider; 
     public Collider2D secondCollider;
 
     private int hitCount = 0;
@@ -42,6 +42,7 @@ public class CombinedHitandFall : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             HandleHit();
+            ScoreManager.Instance?.AddMultipleScore(1);
         }
     }
 
@@ -67,10 +68,10 @@ public class CombinedHitandFall : MonoBehaviour
         if (hasFallen) return;
 
         hasFallen = true;
+        ScoreManager.Instance?.AddMultipleScore(5);
         animator.ResetTrigger(hasFallenID);
         animator.SetTrigger(hasFallenID);
 
-        // Disable collider after a small delay to allow animation start
         if (targetCollider != null)
             Invoke(nameof(DisableCollider), 0.3f);
     }

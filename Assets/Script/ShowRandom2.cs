@@ -15,7 +15,7 @@ public class ShowRandom2 : MonoBehaviour
 
     void Start()
     {
-        random = new[] { random1, random2, random3 };
+        random = new[] { random1, random2, random3, random3, random4, random5, random6 };
         DisplayRandom();
 
     }

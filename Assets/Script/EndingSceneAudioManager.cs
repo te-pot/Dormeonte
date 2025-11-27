@@ -19,7 +19,7 @@ public class EndingSceneAudioManager : MonoBehaviour
     void Awake()
     {
         // Destroy any existing gameplay AudioManager to prevent conflicts
-        AudioManager oldAM = FindObjectOfType<AudioManager>();
+        AudioManager oldAM = Object.FindFirstObjectByType<AudioManager>();
         if (oldAM != null)
         {
             Destroy(oldAM.gameObject);

@@ -9,6 +9,12 @@ public class ScoreManager : MonoBehaviour
     private int score = 0;
     public Text ScoreText;
 
+    [Header("Floating Text")]
+    public GameObject floatingTextPrefab;
+    public Transform floatingTextParent;
+    public Vector2 floatingTextOffset = new Vector2(0f, 60f);
+
+
     void Awake()
     {
         // Ensure only one persistent instance
@@ -25,6 +31,11 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("gameplay");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -62,13 +73,45 @@ public class ScoreManager : MonoBehaviour
     {
         score++;
         UpdateScoreText();
+        ShowFloatingText("+1");
     }
-
+    
     public void AddMultipleScore(int amount)
     {
         score += amount;
         UpdateScoreText();
+        ShowFloatingText("+" + amount);
     }
+
+    private void ShowFloatingText(string text)
+    {
+        if (floatingTextPrefab == null) return;
+        if (ScoreText == null) return;
+
+        // Determine the parent
+        Transform parent = floatingTextParent != null ? floatingTextParent : ScoreText.transform.parent;
+
+        // 🧭 Create the text under the proper Canvas parent
+        GameObject floatingText = Instantiate(floatingTextPrefab, parent);
+
+        // Get RectTransforms for proper UI positioning
+        RectTransform floatingRect = floatingText.GetComponent<RectTransform>();
+        RectTransform scoreRect = ScoreText.GetComponent<RectTransform>();
+
+        // ⚠️ REMOVED the duplicate local variable declaration here!
+        // Now it uses the public field you declared at the top
+
+        // 🎯 Position the floating text relative to the score text
+        floatingRect.anchoredPosition = scoreRect.anchoredPosition + floatingTextOffset;
+
+        // Set the displayed text
+        FloatingText ftComponent = floatingText.GetComponent<FloatingText>();
+        if (ftComponent != null)
+        {
+            ftComponent.SetText(text);
+        }
+    }
+
 
     public int GetScore()
     {
@@ -80,4 +123,6 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         UpdateScoreText();
     }
+
+
 }

@@ -38,17 +38,24 @@ public class Projectile : MonoBehaviour
 
         if (tag == "Enemy" || tag == "Interior")
         {
-            if (AudioManager.Instance != null && AudioManager.Instance.sfxSource2 != null)
+            if (AudioManager.Instance != null && AudioManager.Instance.meowSource != null)
             {
-                // Stop the current sound if it's playing
-                AudioManager.Instance.sfxSource2.Stop();
+                // Stop any currently playing meow sound
+                AudioManager.Instance.meowSource.Stop();
 
-                // Assign the clip and play from start
-                AudioManager.Instance.sfxSource2.clip = AudioManager.Instance.sfx2a;
-                AudioManager.Instance.sfxSource2.Play();
+                // Pick a random number between 1 and 4 (inclusive)
+                int randomMeow = Random.Range(1, 5); // upper bound is exclusive
+
+                // Build the sound name dynamically
+                string meowName = "meow" + randomMeow;
+
+                // Play the selected meow sound
+                AudioManager.Instance.PlayMeow(meowName);
             }
         }
     }
+
+
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -59,4 +66,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }

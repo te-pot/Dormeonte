@@ -53,7 +53,7 @@ public class BossGhost : MonoBehaviour
         // Add score for defeating the boss
         ScoreManager.Instance?.AddMultipleScore(scoreOnDeath);
         Debug.Log($"Boss defeated! Added {scoreOnDeath} points.");
-        AudioManager.Instance?.PlaySFX5();
+        AudioManager.Instance.PlaySFX("bossdeath"); ;
 
 
         // Destroy the boss object

@@ -160,6 +160,8 @@ MonoBehaviour:
   currentLayer: 3
   maxLayer: 8
   layerInterval: 3
+  cameraAnimator: {fileID: 0}
+  floatingTimePrefab: {fileID: 3265629328329048696, guid: 5fc681443710c8b43bdd1614290a9b55, type: 3}
 --- !u!114 &-4323513610410650274
 MonoBehaviour:
   m_ObjectHideFlags: 0

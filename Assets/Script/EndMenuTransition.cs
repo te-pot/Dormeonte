@@ -7,7 +7,9 @@ public class EndMenuTransition : MonoBehaviour
 
     public void Home()
     {
-        Time.timeScale = 1f; // ✅ Unpause before switching scenes
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.ResetScore();
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartMenu");
     }
 
@@ -15,7 +17,7 @@ public class EndMenuTransition : MonoBehaviour
     {
         Time.timeScale = 1f;
         if (ScoreManager.Instance != null)
-            Destroy(ScoreManager.Instance.gameObject); // 👈 remove old one
+            Destroy(ScoreManager.Instance.gameObject);
 
         SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
     }

@@ -23,15 +23,13 @@ public class SwitchResult : MonoBehaviour
             score = 0;
         }
 
-        // Disable all images first
         GoodEnd.gameObject.SetActive(false);
         NormalEnd.gameObject.SetActive(false);
         BadEnd.gameObject.SetActive(false);
 
-        // Show correct ending
-        if (score >= 20)
+        if (score >= 250)
             GoodEnd.gameObject.SetActive(true);
-        else if (score >= 15)
+        else if (score >= 100)
             NormalEnd.gameObject.SetActive(true);
         else
             BadEnd.gameObject.SetActive(true);

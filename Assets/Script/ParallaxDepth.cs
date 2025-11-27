@@ -7,25 +7,38 @@ public class ParallaxDepth : MonoBehaviour
     public RectTransform midground;
     public RectTransform background;
 
+    [Header("Pivot Settings")]
+    public RectTransform pivotPoint; // Custom pivot
+
     [Header("Movement Settings")]
     public float foregroundIntensity = 10f;
     public float midgroundIntensity = 20f;
     public float backgroundIntensity = 30f;
-    public float maxOffset = 40f; // Max movement in pixels
+    public float maxOffset = 40f;
 
+    private Canvas rootCanvas;
     private Vector2 screenCenter;
 
     void Start()
     {
+        rootCanvas = GetComponentInParent<Canvas>();
         screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
     }
 
     void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 offset = (mousePos - screenCenter) / screenCenter; // normalized [-1, 1]
+        if (rootCanvas == null) return;
 
-        // Move each layer opposite to mouse direction
+        Vector2 mousePos = Input.mousePosition;
+
+        // Convert pivot point to screen position
+        Vector2 pivotPos = pivotPoint != null
+            ? RectTransformUtility.WorldToScreenPoint(rootCanvas.worldCamera, pivotPoint.position)
+            : screenCenter;
+
+        // Normalize offset roughly [-1, 1]
+        Vector2 offset = (mousePos - pivotPos) / screenCenter;
+
         ApplyParallax(foreground, offset, foregroundIntensity);
         ApplyParallax(midground, offset, midgroundIntensity);
         ApplyParallax(background, offset, backgroundIntensity);
@@ -35,12 +48,10 @@ public class ParallaxDepth : MonoBehaviour
     {
         if (layer == null) return;
 
-        // Move in opposite direction for depth illusion
         Vector2 movement = -offset * intensity;
-
-        // Clamp the movement
         movement = Vector2.ClampMagnitude(movement, maxOffset);
 
-        layer.anchoredPosition = movement;
+        // Smooth movement (optional)
+        layer.anchoredPosition = Vector2.Lerp(layer.anchoredPosition, movement, Time.deltaTime * 5f);
     }
 }

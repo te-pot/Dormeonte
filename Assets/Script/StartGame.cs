@@ -16,11 +16,9 @@ public class StartGame : MonoBehaviour
 
     private IEnumerator FadeAndLoadScene(string sceneName)
     {
-        // Trigger music fade if AudioManager exists
         if (AudioManager.Instance != null)
-            StartCoroutine(AudioManager.Instance.FadeOutMusic(fadeDuration));
+            //StartCoroutine(AudioManager.Instance.FadeOutMusic(fadeDuration));
 
-        // Start fade to black
         if (fadeImage != null)
         {
             fadeImage.gameObject.SetActive(true);

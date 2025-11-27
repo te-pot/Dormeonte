@@ -13,12 +13,12 @@ public class EndingSceneSetup : MonoBehaviour
         Debug.Log("EndingSceneSetup Start called!");
 
         // Stop previous background music
-        AudioManager.Instance.StopMusic();
+        //AudioManager.Instance.StopMusic();
 
         // Play ending music if assigned
         if (endingMusic != null)
         {
-            AudioManager.Instance.PlayMusic(endingMusic);
+            //AudioManager.Instance.PlayMusic(endingMusic);
         }
 
         // Play SFX based on score
@@ -27,17 +27,17 @@ public class EndingSceneSetup : MonoBehaviour
         if (score >= 120 && sfxHigh != null)
         {
             Debug.Log("Playing High Score SFX");
-            AudioManager.Instance.PlaySFX(sfxHigh);
+            //AudioManager.Instance.PlaySFX(sfxHigh);
         }
         else if (score >= 100 && sfxMedium != null)
         {
             Debug.Log("Playing Medium Score SFX");
-            AudioManager.Instance.PlaySFX(sfxMedium);
+            //AudioManager.Instance.PlaySFX(sfxMedium);
         }
         else if (sfxLow != null)
         {
             Debug.Log("Playing Low Score SFX");
-            AudioManager.Instance.PlaySFX(sfxLow);
+            //AudioManager.Instance.PlaySFX(sfxLow);
         }
 
 

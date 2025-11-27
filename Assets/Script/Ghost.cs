@@ -14,7 +14,6 @@ public class Ghost : MonoBehaviour
         currentHealth = maxHealth;
         isDead = false;
 
-        // Find the ScoreManager object (must have tag "ScoreManager")
         GameObject scoreObj = GameObject.FindWithTag("ScoreManager");
         if (scoreObj != null)
         {
@@ -28,32 +27,38 @@ public class Ghost : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log($"Ghost collided with {collision.collider.name}");
         Projectile projectile = collision.collider.GetComponent<Projectile>();
         if (projectile != null)
         {
+            Debug.Log("Projectile detected!");
             TakeDamage(1);
         }
     }
+
 
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            AudioManager.Instance?.PlaySFX2();
+            //AudioManager.Instance.PlaySFX("ghostdamage"); ;
             Die();
         }
     }
 
+
     void Die()
     {
-        // Add score and show in console
+        Debug.Log("Ghost died!");
         if (scoreManager != null)
         {
-            scoreManager.AddScore();
+            scoreManager.AddMultipleScore(5);
         }
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("ghostdeath");
+
         Destroy(gameObject);
-        isDead = true;
     }
 }

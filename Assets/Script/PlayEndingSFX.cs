@@ -2,19 +2,33 @@ using UnityEngine;
 
 public class PlayEndingSFX : MonoBehaviour
 {
-    public AudioManager audioManager;
-
     void Start()
     {
-        int score = ScoreManager.Instance.GetScore();
+        // Stop music safely
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.StopMusic();
 
-        AudioManager.Instance.StopMusic();
+        int score = 0;
 
-        if (score >= 120)
-            AudioManager.Instance.PlaySFX1();
-        else if (score >= 100)
-            AudioManager.Instance.PlaySFX2();
-        else if (score >= 0)
-            AudioManager.Instance.PlaySFX3();
+        // Only try to get score if ScoreManager exists
+        if (ScoreManager.Instance != null)
+        {
+            score = ScoreManager.Instance.GetScore();
+        }
+        else
+        {
+            Debug.LogWarning("ScoreManager not found. Defaulting score to 0.");
+        }
+
+        // Play ending SFX based on score
+        if (AudioManager.Instance != null)
+        {
+            if (score >= 250)
+                AudioManager.Instance.PlaySFX("bestend");
+            else if (score >= 100)
+                AudioManager.Instance.PlaySFX("goodend");
+            else
+                AudioManager.Instance.PlaySFX("normalend");
+        }
     }
 }

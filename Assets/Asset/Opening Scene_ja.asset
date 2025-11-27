@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Opening Scene_ja
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: ja
+  m_SharedData: {fileID: 11400000, guid: 42099e18c4a08c843b99a3c205297fc4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 375312982016
+    m_Localized: "\u6BCE\u65E5\u5BB6\u3092\u6563\u3089\u304B\u3059\u7406\u7531\u306F\u305F\u3060\u4E00\u3064\n\u4ECA\u65E5\u3082\u304A\u5316\u3051\u3068\u6226\u3046\u70BA\u3067\u3042\u308B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 645543600128
+    m_Localized: "\u30AF\u30EA\u30C3\u30AF\u3067\u9032\u3080"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

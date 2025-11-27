@@ -76,7 +76,7 @@ public class GameTimer : MonoBehaviour
             if (Timer <= 30f && Boss != null && !Boss.activeSelf)
             {
                 Boss.SetActive(true);
-                AudioManager.Instance?.PlaySFXImmediate(AudioManager.Instance.sfx4);
+                AudioManager.Instance?.PlaySFX("bossspawn");
             }
 
 

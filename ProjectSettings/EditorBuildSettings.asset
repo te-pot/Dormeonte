@@ -24,5 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: a267ac271b94a1f4e9628014ac17136f
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 3f673d54a606ea645b0b87452cf2702f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: e824881c75476fc4b9244f44f5d13465, type: 2}
   m_UseUCBPForAssetBundles: 0

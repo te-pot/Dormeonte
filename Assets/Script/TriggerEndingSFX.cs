@@ -4,20 +4,21 @@ public class TriggerEndingSFX : MonoBehaviour
 {
     void Start()
     {
-        var audioManager = FindObjectOfType<EndingSceneAudioManager>();
+        /*var audioManager = Object.FindFirstObjectByType<EndingSceneAudioManager>();
         if (audioManager == null)
         {
             Debug.LogWarning("No EndingSceneAudioManager found!");
             return;
         }
+        */
 
         int score = ScoreManager.Instance != null ? ScoreManager.Instance.GetScore() : 0;
 
         if (score >= 120)
-            audioManager.PlaySFX(1); // high score
+            AudioManager.Instance.PlaySFX("bestend"); // high score
         else if (score >= 100)
-            audioManager.PlaySFX(2); // medium score
+            AudioManager.Instance.PlaySFX("goodend"); // medium score
         else
-            audioManager.PlaySFX(3); // low score
+            AudioManager.Instance.PlaySFX("normalend"); // low score
     }
 }

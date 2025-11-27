@@ -7,13 +7,12 @@ public class GhostSpawnScript : MonoBehaviour
     public GameObject ghost1;
     public GameObject ghost2;
     public GameObject ghost3;
-    //public GameObject ghost4;
-    //public GameObject ghost5;
 
     [Header("Spawn Settings")]
-    public float spawnInterval = 3f;  // seconds between spawns
-    private float timer;
+    public float spawnInterval = 3f;
+    public Animator cameraAnimator; // assign this in the inspector
 
+    private float timer;
     private GameObject[] ghostPrefabs;
     private Collider2D spawnAreaCollider;
 
@@ -22,7 +21,6 @@ public class GhostSpawnScript : MonoBehaviour
         spawnAreaCollider = GetComponent<Collider2D>();
         ghostPrefabs = new[] { ghost1, ghost2, ghost3 };
     }
-
 
     void Update()
     {
@@ -42,18 +40,28 @@ public class GhostSpawnScript : MonoBehaviour
         int randomIndex = Random.Range(0, ghostPrefabs.Length);
         GameObject ghostToSpawn = ghostPrefabs[randomIndex];
 
-        // Get bounds of the collider
         Bounds bounds = spawnAreaCollider.bounds;
 
-        // Pick a random point within the collider bounds
         Vector3 randomPos = new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
             Random.Range(bounds.min.y, bounds.max.y),
             0f
         );
 
-        Instantiate(ghostToSpawn, randomPos, Quaternion.identity);
+        // instantiate the ghost and store the instance
+        GameObject spawnedGhost = Instantiate(ghostToSpawn, randomPos, Quaternion.identity);
 
-        Debug.Log($"Spawned: {ghostToSpawn.name} at {randomPos}");
+        // assign the camera animator to the spawned ghost's EnemyApproaches script
+        EnemyApproaches ea = spawnedGhost.GetComponent<EnemyApproaches>();
+        if (ea != null)
+        {
+            ea.cameraAnimator = cameraAnimator;
+        }
+        else
+        {
+            Debug.LogWarning($"Spawned ghost '{spawnedGhost.name}' has no EnemyApproaches component!");
+        }
+
+        Debug.Log($"Spawned: {spawnedGhost.name} at {randomPos}");
     }
 }
