@@ -2805,7 +2805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 563.38, y: -180}
+  m_AnchoredPosition: {x: 563.38, y: -206}
   m_SizeDelta: {x: 459.3628, y: 308.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499866081
@@ -3817,8 +3817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.6814, y: -248.39499}
-  m_SizeDelta: {x: 207.95, y: 64.2}
+  m_AnchoredPosition: {x: 229.68, y: -248.39499}
+  m_SizeDelta: {x: 459.36, y: 64.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711326951
 MonoBehaviour:
@@ -4489,6 +4489,7 @@ GameObject:
   - component: {fileID: 872339344}
   - component: {fileID: 872339346}
   - component: {fileID: 872339345}
+  - component: {fileID: 872339347}
   m_Layer: 0
   m_Name: 02_1tana_0
   m_TagString: Interior
@@ -4704,13 +4705,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872339340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb7a44b8f9396654fa3645493d8e5cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayHitSequence
   animator: {fileID: 0}
   hitCooldown: 0.3
+--- !u!114 &872339347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872339340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977a78e65d7d778409570f7e53df4623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombinedHitandFall
+  animator: {fileID: 1373419021}
+  gotHitTrigger: GotHit
+  hasFallenTrigger: hasFallen
+  hitsToFall: 15
+  hitCooldown: 0.01
+  targetCollider: {fileID: 872339345}
+  secondCollider: {fileID: 872339345}
 --- !u!1 &901237038
 GameObject:
   m_ObjectHideFlags: 0
